@@ -3,9 +3,9 @@
 
     var _ = global._;
 
-    var defined = {},
+    var defined    = {},
         predefined = {},
-        waiting = {};
+        waiting    = {};
 
     var req = global.req = function (name, args) {
 
@@ -14,8 +14,8 @@
         }
 
         var dependencies = args.slice(0, -1),
-            factory = args.slice(-1)[0],
-            preparation = [];
+            factory      = args.slice(-1)[0],
+            preparation  = [];
 
         if (_.some(dependencies, function (dependency) {
             if (defined[dependency] === undefined) {
