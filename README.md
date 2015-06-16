@@ -37,3 +37,17 @@ req('want', function () {
     };
 });
 ```
+
+Output:
+
+```
+Init want
+Init say
+Init eat
+Init enjoy
+Init parrot
+Want to say "Hello!".
+Want to eat "carrot".
+Want to eat "corn".
+Want to say "corn yummy!".
+```
