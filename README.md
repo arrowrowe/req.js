@@ -14,26 +14,24 @@ req('parrot', ['say', 'eat', 'enjoy', function (say, eat, enjoy) {
 
 req('enjoy', ['eat', 'say', function (eat, say) {
     console.log('Init enjoy');
-    return function (food) {
-        eat(food);
-        say(food + ' yummy!');
-    };
+    return function (food) { return eat(food) && say(food + ' yummy!'); };
 }]);
 
 req('say', ['want', function (want) {
     console.log('Init say');
-    return function (word) { want('say', word); };
+    return function (word) { return want('say', word); };
 }]);
 
 req('eat', ['want', function (want) {
     console.log('Init eat');
-    return function (food) { want('eat', food); };
+    return function (food) { return want('eat', food); };
 }]);
 
 req('want', function () {
     console.log('Init want');
     return function (verb, detail) {
         console.log('Want to ' + verb + ' "' + detail + '".');
+        return true;
     };
 });
 ```
