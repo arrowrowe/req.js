@@ -3,9 +3,9 @@
 
     var _ = global._;
 
-    var defined    = {},
-        predefined = {},
-        waiting    = {};
+    var defined    = Object.create(null),
+        predefined = Object.create(null),
+        waiting    = Object.create(null);
 
     var req = global.req = function (name, args) {
 
